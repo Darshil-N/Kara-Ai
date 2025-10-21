@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* KARA AI Design System - Premium AI Coaching Platform */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Light Mode (Secondary) */
+    --background: 210 17% 97%;
+    --foreground: 215 25% 18%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 18%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 18%;
+    --primary: 213 93% 42%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 215 25% 18%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215 16% 40%;
+    --accent: 213 93% 42%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214 32% 83%;
+    --input: 214 32% 83%;
+    --ring: 213 93% 42%;
+    --radius: 0.5rem;
+
+    /* KARA AI Brand Colors */
+    --electric-teal: 210 100% 67%;
+    --vibrant-magenta: 291 64% 68%;
+    --hero-gradient: linear-gradient(135deg, hsl(var(--electric-teal)), hsl(var(--vibrant-magenta)));
+    --glass-bg: 0 0% 100% / 0.1;
+    --glass-border: 0 0% 100% / 0.2;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark Mode (Primary) - Deep charcoal with blue hint */
+    --background: 214 25% 7%;
+    --foreground: 210 17% 90%;
+    --card: 214 27% 11%;
+    --card-foreground: 210 17% 90%;
+    --popover: 214 27% 11%;
+    --popover-foreground: 210 17% 90%;
+    --primary: 210 100% 67%;
+    --primary-foreground: 214 25% 7%;
+    --secondary: 214 27% 11%;
+    --secondary-foreground: 210 17% 90%;
+    --muted: 214 27% 11%;
+    --muted-foreground: 214 10% 58%;
+    --accent: 210 100% 67%;
+    --accent-foreground: 214 25% 7%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 17% 90%;
+    --border: 215 15% 21%;
+    --input: 215 15% 21%;
+    --ring: 210 100% 67%;
+
+    /* Glass effect for dark mode */
+    --glass-bg: 0 0% 0% / 0.1;
+    --glass-border: 0 0% 100% / 0.1;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Glassmorphism Navigation */
+  .glass-nav {
+    @apply bg-background/70 backdrop-blur-xl border-b border-white/10;
+  }
+
+  /* Hero gradient text */
+  .hero-gradient-text {
+    background: linear-gradient(135deg, hsl(var(--electric-teal)), hsl(var(--vibrant-magenta)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Premium card style */
+  .premium-card {
+    @apply bg-card/50 backdrop-blur-sm border border-border/50 rounded-lg p-6;
+    box-shadow: 0 8px 32px -8px hsl(var(--primary) / 0.1);
+  }
+
+  /* Interactive elements */
+  .interactive-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .interactive-hover:hover {
+    @apply scale-[1.02] shadow-lg;
+  }
+
+  /* Pulse animation for live elements */
+  .pulse-ring {
+    @apply before:absolute before:inset-0 before:rounded-full before:border-2 before:border-primary/50 before:animate-ping;
+  }
+}
+
+@layer utilities {
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Custom scrollbars */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-muted/20;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/40 rounded-full;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/60;
+  }
+
+  /* Animation keyframes */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes glow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.1);
+    }
+    50% {
+      box-shadow: 0 0 30px hsl(var(--primary) / 0.3);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite;
+  }
+
+  /* Gradient backgrounds */
+  .bg-hero-gradient {
+    background: linear-gradient(135deg, hsl(var(--electric-teal)), hsl(var(--vibrant-magenta)));
+  }
+
+  .bg-subtle-gradient {
+    background: linear-gradient(135deg, hsl(var(--background)), hsl(var(--card)));
+  }
+}
