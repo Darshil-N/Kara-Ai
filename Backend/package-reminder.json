@@ -1,0 +1,33 @@
+{
+  "name": "kara-ai-reminder-service",
+  "version": "1.0.0",
+  "description": "Email and SMS reminder service for Kara AI interview scheduling",
+  "main": "reminder-service.js",
+  "scripts": {
+    "start": "node reminder-service.js",
+    "dev": "nodemon reminder-service.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "email",
+    "reminders",
+    "interview",
+    "scheduling",
+    "nodejs"
+  ],
+  "author": "Kara AI Team",
+  "license": "MIT",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.9.8"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
